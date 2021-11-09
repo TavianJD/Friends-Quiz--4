@@ -34,9 +34,9 @@ startBtn.onclick = startQuiz;
 var submitHighscore = document.getElementById('initialsBtn')
 
 let currentQuestion = 0
-var time = 45;
+var time = 30;
 var timer;
-var initials = '';
+var initials = "";
 var score = '';
 var answer = 0;
 
@@ -55,7 +55,7 @@ function startQuiz() {
 
 
 
-
+// runs the quiz function
 function runQuiz() {
     var currentQuestionData = questions[currentQuestion];
 
@@ -81,6 +81,7 @@ function runQuiz() {
     
 
 }
+// runs the timer function
 
 function timeHandler() {
     time--;
@@ -90,15 +91,15 @@ function timeHandler() {
         endQuiz();
     }
 }
-
+// Handles the buttons and when you click //
 function clickHandler(){
     if(this.value !== questions[currentQuestion].correct){
-        time -= 9;
+        time -= 10;
     } else {
         answer++;
     }
 
-    if(time === 0){
+    if(time <=0){
         endQuiz();
     }
 
@@ -111,7 +112,7 @@ function clickHandler(){
     }
 
 }
-
+//
 function endQuiz() {
     
     clearInterval(timer);
@@ -139,7 +140,7 @@ var saveHighScore = function () {
         var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
 
         var newScore = {
-            initials: initials,
+            initials: "",
             score: answer
         };
 
@@ -151,4 +152,4 @@ var saveHighScore = function () {
 }
 
 
-submitHighscore.onclick = saveHighScore;
+submitHighscore.onsubmit = saveHighScore;
