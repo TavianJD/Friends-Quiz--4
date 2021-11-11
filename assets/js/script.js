@@ -31,7 +31,7 @@ var answersEl = document.getElementById("answers");
 var timeEl = document.getElementById('time');
 var startBtn = document.getElementById('startbtn');
 startBtn.onclick = startQuiz;
-var submitHighscore = document.getElementById('initialsBtn')
+var submitHighscoreBtn = document.getElementById('initialsBtn')
 
 let currentQuestion = 0
 var time = 30;
@@ -152,4 +152,4 @@ var saveHighScore = function () {
 }
 
 
-submitHighscore.onsubmit = saveHighScore;
+submitHighscoreBtn.onsubmit = saveHighScore;
